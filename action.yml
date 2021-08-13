@@ -1,0 +1,30 @@
+name: delete-preview-packages
+description: Delete old semver preview packages
+branding:
+  icon: archive
+  color: red
+author: luiz.bon@gmail.com
+inputs:
+  github_token:
+    required: true
+    description: github token
+  owner:
+    required: true
+    description: github organization
+  repo:
+    required: true
+    description: package repo on github
+  packages:
+    required: true
+    description: list of packages to delete
+  package_type:
+    required: false
+    description: package type ('npm', 'maven', 'rubygems', 'nuget', 'docker', 'container'), defaults to 'nuget'
+    default: nuget
+  dry_run:
+    rerquired: false
+    description: turn this on will only list packages
+    default: false
+runs:
+  using: node12
+  main: dist/index.js
