@@ -5,7 +5,7 @@
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 9,
-        "sourceType": "module",
+        "sourceType": "module"
     },
     "rules": {
         "eslint-comments/no-use": "off",
@@ -14,10 +14,12 @@
         "camelcase": "off",
         "no-console": "off",
         "github/array-foreach": "off",
-        "semi": "on"
+        "semi": "error"
     },
     "env": {
-        "node": true,
-        "es6": true
+        "commonjs": true,
+        "es6": true,
+        "jest": true,
+        "node": true
     }
 }

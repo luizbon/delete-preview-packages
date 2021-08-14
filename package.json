@@ -2,9 +2,13 @@
   "name": "delete-preview-packages",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write **/*.js",
+    "format-check": "prettier --check **/*.js",
+    "lint": "eslint .",
+    "prepare": "ncc build src/main.js -o dist --source-map --license licenses.txt",
+    "all": "npm run format-check && npm run lint && npm run prepare"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.29.0",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-github": "^4.2.0",
     "eslint-plugin-prettier": "^3.4.0",
