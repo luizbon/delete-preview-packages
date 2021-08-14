@@ -5,24 +5,32 @@ branding:
   color: red
 author: luiz.bon@gmail.com
 inputs:
-  github_token:
-    required: true
-    description: github token
+  token:
+    required: false
+    description: >
+      Token with the necessary scopes to delete package versions.
+      Defaults to github.token scoped to the repo running the action. To delete package versions
+      of a package outside the repo the action is running in use a Personal Access Token stored as a secret.
+    default: ${{ github.token }}
   owner:
-    required: true
-    description: github organization
+    required: false
+    description: >
+      Owner of the repo containing the package version to delete.
+      Defaults to the owner of the repo running the action.
   repo:
-    required: true
-    description: package repo on github
+    required: false
+    description: >
+      Repo containing the package version to delete.
+      Defaults to the repo running the action.
   packages:
     required: true
-    description: list of packages to delete
+    description: Comma separated string of packages to delete.
   package_type:
     required: false
     description: package type ('npm', 'maven', 'rubygems', 'nuget', 'docker', 'container'), defaults to 'nuget'
     default: nuget
   dry_run:
-    rerquired: false
+    required: false
     description: turn this on will only list packages
     default: false
 runs:
